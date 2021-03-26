@@ -96,7 +96,3 @@ CREATE TABLE registered_workers
 CREATE INDEX site_id_rw ON  registered_workers (site_id);
 CREATE INDEX worker_id_rw ON  registered_workers (worker_id);
 \COPY registered_workers FROM 'registered_workers.csv' DELIMITER ',' CSV HEADER;
-
-
-\c postgres;
-DROP DATABASE triax;

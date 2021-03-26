@@ -76,7 +76,7 @@ CREATE TEMPORARY TABLE dba_tmp AS
 CREATE TEMPORARY TABLE tmp_out AS 
 	SELECT
 		wp.subcontractor_id AS subcontractor_id,
-		TO_DATE(dt.year_week, 'IWIYYYY') AS monday_date,
+		TO_DATE(dt.year_week, 'IWYYYY') AS monday_date,
 		SUM(dt.hours_worked) AS billable_hours
 	FROM dba_tmp dt
 	LEFT JOIN worker_profiles wp ON wp.id = dt.worker_id

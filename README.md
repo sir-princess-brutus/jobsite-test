@@ -64,16 +64,18 @@ summing the session lengths (OUT - IN per record) per worker per day.
 The next was to compare the IoT session data to the gate transaction data, and we
 used a 5% difference to mean "dramatically" different. To calculate the percent difference
 we took:
-		100.0 * | gate_time - iot_time | / iot_time
+
+* 100.0 * | gate\_time - iot\ _time | / iot\_time
 
 We used a FULL OUT JOIN to make sure we got all worked hours between the IoT data and
 the gate transaction data. Using that outer join table, we took the "more accurate"
 hours worked for the day.
 
 "More accurate" was defined as:
-	1. If either data was NULL, or IoT data was zero, we COALESCEd the hours worked.
-	2. If the in/outs on the gate transaction data was mismatched, or the gate and IoT data disagreed by more than 5%, we used the IoT hours worked.
-	3. Finally, for all other cases we used the gate transaction hours worked data.
+
+1. If either data was NULL, or IoT data was zero, we COALESCEd the hours worked.
+2. If the in/outs on the gate transaction data was mismatched, or the gate and IoT data disagreed by more than 5%, we used the IoT hours worked.
+3. Finally, for all other cases we used the gate transaction hours worked data.
 
 The dashboard is identical to the one for the initial Billable Hours task, but with
 the updated data.

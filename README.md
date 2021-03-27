@@ -65,7 +65,7 @@ The next was to compare the IoT session data to the gate transaction data, and w
 used a 5% difference to mean "dramatically" different. To calculate the percent difference
 we took:
 
-* 100.0 * | gate\_time - iot\ _time | / iot\_time
+* 100.0 * | gate\_time - iot\_time | / iot\_time
 
 We used a FULL OUT JOIN to make sure we got all worked hours between the IoT data and
 the gate transaction data. Using that outer join table, we took the "more accurate"

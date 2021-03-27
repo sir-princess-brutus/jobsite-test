@@ -16,7 +16,7 @@ files, each one prefixed by 'DXX\_' where XX is the delivarable number.
 All the SQL to create the data are in the script. A few notes on the individual
 queries and deliverables are below.
 
-#### 1, Billable Hours via Gate Transactions
+#### 1: Billable Hours via Gate Transactions
 
 The initial billable hours estimate doesn't take mismatched in/outs into account,
 just uses the earliest in and latest out. It does filter on negative hours worked,
@@ -27,7 +27,7 @@ March 22 - March 28, 2021.
 
 The dashboard would show total billable hours per week, per contractor\_id.
 
-#### 2, Workers Provided by Contractor
+#### 2: Workers Provided by Contractor
 
 The contractors that have not sent a single worker to date are those contractors
 who have sent 0% of the workers they registered in our system (worker\_profiles.csv).
@@ -38,7 +38,7 @@ ascending.
 
 The dashboard would show the contractor\_id and percent of workers sent onsite to date.
 
-#### 3, Daily Headcount
+#### 3: Daily Headcount
 
 This uses the gate transaction data to check how many workers go to the site, per
 contractor per day. 
@@ -46,7 +46,7 @@ contractor per day.
 The dashboard would show a collapsible row by day with the total headcount for the
 day. When the row is expanded, the head count for each contractor is displayed.
 
-#### 4, Security Risks and Updated Billable Hours Estimate
+#### 4: Security Risks and Updated Billable Hours Estimate
 
 ##### Security Risk 
 
@@ -72,8 +72,7 @@ hours worked for the day.
 
 "More accurate" was defined as:
 	1. If either data was NULL, or IoT data was zero, we COALESCEd the hours worked.
-	2. If the in/outs on the gate transaction data was mismatched, or the gate and IoT
-		data disagreed by more than 5%, we used the IoT hours worked.
+	2. If the in/outs on the gate transaction data was mismatched, or the gate and IoT data disagreed by more than 5%, we used the IoT hours worked.
 	3. Finally, for all other cases we used the gate transaction hours worked data.
 
 The dashboard is identical to the one for the initial Billable Hours task, but with
